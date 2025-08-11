@@ -2,3 +2,7 @@
 {% for book in books %}
 <p><a href="{% url 'book' book.pk %}">{{ book.title }}</a> ({{ book.author }})</p>
 {% endfor %}
+<h1>Autoriai, rasti pagal užklausą "{{ query }}":</h1>
+{% for author in authors %}
+<p>{{ author }}</p>
+{% endfor %}
