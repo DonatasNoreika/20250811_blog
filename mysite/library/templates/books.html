@@ -1,3 +1,8 @@
+<form method="get" action="{% url 'search' %}">
+    <input type="text" name="q">
+    <button type="submit">Ieškoti</button>
+</form>
+
 <h1>Books:</h1>
 {% for book in books %}
 <p><a href="{% url 'book' book.pk %}">{{ book.title }}</a> ({{ book.author }})</p>
