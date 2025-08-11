@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from .models import Book, Genre, Author
+from django.core.paginator import Paginator
 
 def books(request):
-    books = Book.objects.all()
+    objects = Book.objects.all()
+    paginator = Paginator(objects, per_page=3)
+    page_num = request.GET.get("page")
+    books = paginator.get_page(page_num)
     return render(request, template_name="books.html", context={"books": books})
 
 def book(request, book_id):

@@ -2,3 +2,16 @@
 {% for book in books %}
 <p><a href="{% url 'book' book.pk %}">{{ book.title }}</a> ({{ book.author }})</p>
 {% endfor %}
+
+<hr>
+<div>
+    {% if books.has_previous %}
+    <a href="?page={{ books.previous_page_number }}">Ankstesnis</a>
+    {% endif %}
+
+    <span>{{ books.number }} iš {{ books.paginator.num_pages }}</span>
+
+    {% if books.has_next %}
+    <a href="?page={{ books.next_page_number }}">Paskesnis</a>
+    {% endif %}
+</div>
