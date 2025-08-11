@@ -1,3 +1,9 @@
+{% extends "base.html" %}
+
+{% block "title" %}Authors{% endblock %}
+
+
+{% block "content" %}
 <h1>Authors:</h1>
 {% for author in authors %}
 <p>{{ author }}</p>
@@ -16,3 +22,4 @@
     <a href="?page={{ page_obj.paginator.num_pages }}">Paskutinis</a>
     {% endif %}
 </div>
+{% endblock %}
